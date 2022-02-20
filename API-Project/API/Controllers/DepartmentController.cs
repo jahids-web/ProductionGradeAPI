@@ -63,12 +63,12 @@ namespace API.Controllers
         public static Department UpdateDepartment(string code, Department department)
         {
             Department result = new Department();
-            foreach (var aDepartent in AllDepartment)
+            foreach (var aDepartment in AllDepartment)
             {
-                if(code == aDepartent.Code)
+                if(code == aDepartment.Code)
                 {
-                    aDepartent.Name = department.Name;
-                    return = aDepartent;
+                    aDepartment.Name = department.Name;
+                    return  aDepartment;
                 }
             }
             return result;
