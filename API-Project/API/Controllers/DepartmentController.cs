@@ -23,9 +23,9 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Insert(string code)
+        public IActionResult Insert(Department department)
         {
-            return Ok("Insert New Department");
+            return Ok(DepartmentStatic.InsertDepartment(department));
         }
 
         [HttpPut("{code}")]
