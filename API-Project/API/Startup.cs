@@ -28,7 +28,11 @@ namespace API
         {
             services.AddControllers();
             SetapSwagger(services);
-            services.AddApiVersioning();
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0); 
+                config.AssumeDefaultVersionWhenUnspecified = true;
+            });
         }
 
         private void SetapSwagger(IServiceCollection services)
