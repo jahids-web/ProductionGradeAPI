@@ -34,10 +34,10 @@ namespace API.Controllers
             return Ok(DepartmentStatic.UpdateDepartment(code,department));
         }
 
-        [HttpGet("{code}")]
+        [HttpDelete("{code}")]
         public IActionResult Delete(string code)
         {
-            return Ok("Delete " + code + "deparmet data");
+            return Ok(DepartmentStatic.DeleteDepartment(code));
         }
 
     }
