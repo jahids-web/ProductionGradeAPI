@@ -81,7 +81,5 @@ namespace API.Controllers
             AllDepartment = AllDepartment.Where(x => x.Code != department.Code).ToList();
             return department;
         }
-        
-
     }
 }
