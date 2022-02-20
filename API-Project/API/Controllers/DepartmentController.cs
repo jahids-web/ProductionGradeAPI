@@ -29,9 +29,9 @@ namespace API.Controllers
         }
 
         [HttpPut("{code}")]
-        public IActionResult Updat(string code)
+        public IActionResult Updat(string code,Department department)
         {
-            return Ok("Update " + code + "deparmet data");
+            return Ok(DepartmentStatic.UpdateDepartment(code,department));
         }
 
         [HttpGet("{code}")]
