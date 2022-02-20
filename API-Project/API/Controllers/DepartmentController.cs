@@ -19,7 +19,7 @@ namespace API.Controllers
         [HttpGet("{code}")]
         public IActionResult GetA(string code)
         {
-            return Ok("get "+ code + "department data");
+            return Ok(DepartmentStatic.GetDepartment(code));
         }
 
         [HttpPost]
