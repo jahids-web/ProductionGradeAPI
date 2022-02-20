@@ -13,13 +13,13 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(DepartmentStatic.GetAllDepartmant());
+            return Ok(DepartmentStatic.GetAllDepartment());
         }
 
         [HttpGet("{code}")]
         public IActionResult GetA(string code)
         {
-            return Ok(DepartmentStatic.GetDepartment(code));
+            return Ok(DepartmentStatic.GetADepartment(code));
         }
 
         [HttpPost]
@@ -29,7 +29,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{code}")]
-        public IActionResult Updat(string code,Department department)
+        public IActionResult Update(string code,Department department)
         {
             return Ok(DepartmentStatic.UpdateDepartment(code,department));
         }
@@ -51,11 +51,11 @@ namespace API.Controllers
             AllDepartment.Add(department);
             return department;
         }
-        public static List<Department> GetAllDepartmant()
+        public static List<Department> GetAllDepartment()
         {
             return AllDepartment;
         }
-        public static Department GetDepartment (string code)
+        public static Department GetADepartment (string code)
         {
             return AllDepartment.FirstOrDefault(x => x.Code == code);
         }
@@ -68,7 +68,7 @@ namespace API.Controllers
                 if(code == aDepartent.Code)
                 {
                     aDepartent.Name = department.Name;
-                    return  aDepartent;
+                    return = aDepartent;
                 }
             }
             return result;
@@ -77,7 +77,7 @@ namespace API.Controllers
         public static Department DeleteDepartment(string code)
         {
             var department = AllDepartment.FirstOrDefault(x => x.Code == code);
-            AllDepartment = AllDepartment.FirstOrDefault(x => x.Code != department.Code).ToList();
+            AllDepartment = AllDepartment.Where(x => x.Code != department.Code).ToList();
             return department;
         }
         

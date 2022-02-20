@@ -17,3 +17,10 @@ G:\C#\ProductionGradeAPI\API-Project\API\obj\Debug\netcoreapp3.1\API.RazorTarget
 G:\C#\ProductionGradeAPI\API-Project\API\obj\Debug\netcoreapp3.1\API.dll
 G:\C#\ProductionGradeAPI\API-Project\API\obj\Debug\netcoreapp3.1\API.pdb
 G:\C#\ProductionGradeAPI\API-Project\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Versioning.dll
+G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+G:\C#\ProductionGradeAPI\API-Project\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cs
+G:\C#\ProductionGradeAPI\API-Project\API\obj\Debug\netcoreapp3.1\API.csproj.CopyComplete
