@@ -40,6 +40,7 @@ namespace API.Controllers
             return Ok("Delete " + code + "deparmet data");
         }
 
+<<<<<<< HEAD
     }
 
     public static class DepartmentStatic
@@ -80,5 +81,7 @@ namespace API.Controllers
             return department;
         }
         
+=======
+>>>>>>> 560b18ac72887680d92b3e18f5277237677d2d19
     }
 }
