@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DLL.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace DLL.DataContext
@@ -9,5 +10,7 @@ namespace DLL.DataContext
         {
 
         }
+        public DbSet<Department> departments { get; set; }
+        public DbSet<Student> students { get; set; }
     }
 }
