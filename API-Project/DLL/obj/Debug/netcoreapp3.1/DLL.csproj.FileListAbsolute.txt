@@ -1,0 +1,13 @@
+G:\C#\ProductionGradeAPI\API-Project\DLL\bin\Debug\netcoreapp3.1\DLL.deps.json
+G:\C#\ProductionGradeAPI\API-Project\DLL\bin\Debug\netcoreapp3.1\DLL.runtimeconfig.json
+G:\C#\ProductionGradeAPI\API-Project\DLL\bin\Debug\netcoreapp3.1\DLL.runtimeconfig.dev.json
+G:\C#\ProductionGradeAPI\API-Project\DLL\bin\Debug\netcoreapp3.1\DLL.dll
+G:\C#\ProductionGradeAPI\API-Project\DLL\bin\Debug\netcoreapp3.1\DLL.pdb
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.csproj.AssemblyReference.cache
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.GeneratedMSBuildEditorConfig.editorconfig
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.AssemblyInfoInputs.cache
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.AssemblyInfo.cs
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.csproj.CoreCompileInputs.cache
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.dll
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.pdb
+G:\C#\ProductionGradeAPI\API-Project\DLL\obj\Debug\netcoreapp3.1\DLL.genruntimeconfig.cache
