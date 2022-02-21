@@ -1,3 +1,4 @@
+using DLL;
 using DLL.DataContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,7 +36,7 @@ namespace API
                 config.DefaultApiVersion = new ApiVersion(1, 0); 
                 config.AssumeDefaultVersionWhenUnspecified = true;
             });
-            
+            DLLDepandency.AllDepandency(services, Configuration);
         }
 
         private void SetapSwagger(IServiceCollection services)
