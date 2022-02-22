@@ -58,3 +58,4 @@ G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\runtimes\win\li
 G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\DLL.dll
 G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\DLL.pdb
+G:\C#\ProductionGradeAPI\API-Project\API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
