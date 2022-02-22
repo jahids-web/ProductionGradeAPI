@@ -20,9 +20,9 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return Ok(DepartmentStatic.GetAllDepartment());
+            return Ok( await _departmentRepository.GetAll());
         }
 
         [HttpGet("{code}")]
