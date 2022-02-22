@@ -56,7 +56,7 @@ namespace DLL.Repositories
     public async Task<Department> UpdateAsync(string code,Department department)
     {
         var findDepartment = await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
-            findDepartment.Name = department.Name;
+            findDepartment.Code = department.Code;
             _context.Departments.Update(findDepartment);
             await _context.SaveChangesAsync();
         return department;
