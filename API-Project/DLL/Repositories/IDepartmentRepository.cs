@@ -8,8 +8,13 @@ namespace DLL.Repositories
 {
     public interface IDepartmentRepository
     {
-       Task<Department> Insert(Department department);
-        Task<List<Department>> GetAll();
+        Task<Department> InsertAsync(Department department);
+        Task<List<Department>> GetAllAsync();
+        Task<Department> UpdateAsync(string code, Department department);
+        Task<Department> DeleteAsync(string code);
+        Task<Department> GetAAsync(string code);
+
+
     }
 
     public class DepartmentRepository : IDepartmentRepository
@@ -19,7 +24,7 @@ namespace DLL.Repositories
         {
             _context = context; 
         }
-        public async Task<Department> Insert(Department department)
+        public async Task<Department> InsertAsync(Department department)
         {
           await _context.Departments.AddAsync(department);
           await  _context.SaveChangesAsync();
@@ -27,11 +32,39 @@ namespace DLL.Repositories
 
         }
 
-      public async Task<List<Department>> GetAll()
-        {
-            return await _context.Departments.ToListAsync();
-        }
+    public async Task<List<Department>> GetAllAsync()
+    {
+        return await _context.Departments.ToListAsync();
+    }
 
-   
+    public async Task<Department> DeleteAsync(string code)
+    {
+        var department = await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
+
+        _context.Departments.Remove(department);
+        await _context.SaveChangesAsync();
+        return department;
+    }
+
+    public async Task<Department> GetAAsync(string code)
+    {
+        var department = await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
+        return department;
+
+    }
+
+    public async Task<Department> UpdateAsync(string code,Department department)
+    {
+        var findDepartment = await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
+            findDepartment.Name = department.Name;
+            _context.Departments.Update(findDepartment);
+            await _context.SaveChangesAsync();
+        return department;
+
+    }
+
+
+
+
     }
 }
