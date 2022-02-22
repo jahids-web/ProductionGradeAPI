@@ -13,6 +13,7 @@ namespace DLL
     {
         public static void AllDepandency(IServiceCollection services, IConfiguration configuration)
         {
+            var mm = configuration.GetConnectionString("DatabaseConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 
