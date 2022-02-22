@@ -1,8 +1,9 @@
 ﻿using DLL.Models;
-using Microsoft.AspNetCore.Http;
+using DLL.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -11,6 +12,13 @@ namespace API.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class DepartmentController : ControllerBase
     {
+        private readonly IDepartmentRepository _departmentRepository;
+
+        public DepartmentController(IDepartmentRepository departmentRepository)
+        {
+            _departmentRepository = departmentRepository;
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -24,9 +32,9 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Insert(Department department)
+        public async Task<IActionResult> Insert(Department department)
         {
-            return Ok(DepartmentStatic.InsertDepartment(department));
+            return Ok(await _departmentRepository.Insert(department));
         }
 
         [HttpPut("{code}")]
