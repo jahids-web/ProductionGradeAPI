@@ -6,7 +6,7 @@ namespace DLL.Repositories
 {
     public interface IDepartmentRepository
     {
-        Department Insert(Department department);
+       Task<Department> Insert(Department department);
     }
 
     public class DepartmentRepository : IDepartmentRepository
@@ -22,11 +22,6 @@ namespace DLL.Repositories
           await  _context.SaveChangesAsync();
             return department;
 
-        }
-
-        Department IDepartmentRepository.Insert(Department department)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
