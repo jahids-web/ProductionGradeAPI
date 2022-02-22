@@ -10,7 +10,7 @@ namespace DLL.DataContext
         {
 
         }
-        public DbSet<Department> departments { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public DbSet<Student> students { get; set; }
     }
 }
