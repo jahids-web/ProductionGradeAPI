@@ -107,7 +107,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj": {
+                "projectPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
