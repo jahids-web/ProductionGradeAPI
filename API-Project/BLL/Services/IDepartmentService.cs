@@ -8,4 +8,9 @@ namespace BLL.Services
     {
 
     }
+
+    public class DepartmentService : IDepartmentService;
+    {
+
+    }
 }
