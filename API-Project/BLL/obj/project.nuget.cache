@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "OnxKNsMR6SOWZqEFwIIsEj9Mf2LlCEoOUnNYu+LuangF5u3IwWHfx/tB2cr+T6kiI+t0zJddxTpgrA0LNmc6uA==",
+  "success": true,
+  "projectFilePath": "G:\\C#\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jahid Uddin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Jahid Uddin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Jahid Uddin\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Jahid Uddin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
