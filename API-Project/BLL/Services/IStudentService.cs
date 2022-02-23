@@ -1,4 +1,5 @@
 ﻿using DLL.Models;
+using DLL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public interface IStudentRepository
+    public interface IStudentService
     {
         Task<Student> InsertAsync(Student student);
         Task<List<Student>> GetAllAsync();
@@ -15,34 +16,34 @@ namespace BLL.Services
         Task<Student> GetAAsync(string email);
     }
 
-    public class StudentRepository : IStudentRepository
+    public class StudentService : IStudentService
     {
-        private IStudentRepository _studnetRepository;
+        private readonly IStudentRepository _studentRepository;
 
-        public StudentRepository(IStudentRepository studentRepository)
+        public StudentService(IStudentRepository studentRepository)
         {
-            _studnetRepository = studentRepository;
+            _studentRepository = studentRepository;
         }
 
         public async Task<Student> InsertAsync(Student student)
         {
-            return await _studnetRepository.InsertAsync(student);
+            return await _studentRepository.InsertAsync(student);
         }
         public async Task<List<Student>> GetAllAsync()
         {
-            return await _studnetRepository.GetAllAsync();
+            return await _studentRepository.GetAllAsync();
         }
         public async Task<Student> GetAAsync(string email)
         {
-            return await _studnetRepository.GetAAsync(email);
+            return await _studentRepository.GetAAsync(email);
         }
         public async Task<Student> UpdateAsync(string email, Student student)
         {
-            return await _studnetRepository.UpdateAsync(email,student);
+            return await _studentRepository.UpdateAsync(email,student);
         }
         public async Task<Student> DeleteAsync(string email)
         {
-            return await _studnetRepository.DeleteAsync(email);
+            return await _studentRepository.DeleteAsync(email);
         }
     }
 }
