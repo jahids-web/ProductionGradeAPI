@@ -1,7 +1,9 @@
 ﻿using DLL.Models;
+using DLL.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -10,76 +12,43 @@ namespace API.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class StudentController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        public readonly  IStudentRepository _studentRepository;
+
+        public StudentController(IStudentRepository studentRepository)
         {
-            return Ok(StudentStatic.GetAllStudent());
+            _studentRepository = studentRepository;
         }
 
-        [HttpGet("{code}")]
-        public IActionResult GetA(string email)
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
-            return Ok(StudentStatic.GetAStudent(email));
+            return Ok(await _studentRepository.GetAllAsync());
+        }
+
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetA(string email)
+        {
+            return Ok(await _studentRepository.GetAAsync(email));
         }
 
         [HttpPost]
-        public IActionResult Insert(Student student)
+        public async Task<IActionResult> Insert(Student student)
         {
-            return Ok(StudentStatic.InsertStudent(student));
+            return Ok(await _studentRepository.InsertAsync(student));
         }
 
-        [HttpPut("{code}")]
-        public IActionResult Update(string email, Student student)
+        [HttpPut("{email}")]
+        public async Task<IActionResult> Update(string email, Student student)
         {
-            return Ok(StudentStatic.UpdateStudent(email, student));
+            return Ok(await _studentRepository.UpdateAsync(email,student));
         }
 
-        [HttpDelete("{code}")]
-        public IActionResult Delete(string email)
+        [HttpDelete("{email}")]
+        public async Task<IActionResult> Delete(string email)
         {
-            return Ok(StudentStatic.DeleteStudent(email));
+            return Ok(await _studentRepository.DeleteAsync(email));
         }
     }
 
-    public static class StudentStatic
-    {
-        private static List<Student> AllStudent { get; set; } = new List<Student>();
-
-        public static Student InsertStudent(Student student)
-        {
-            AllStudent.Add(student);
-            return student;
-        }
-        public static List<Student> GetAllStudent()
-        {
-            return AllStudent;
-        }
-        public static Student GetAStudent(string Email)
-        {
-            return AllStudent.FirstOrDefault(x => x.Email == Email);
-        }
-
-        public static Student UpdateStudent(string email, Student student)
-        {
-            Student result = new Student();
-            foreach (var aStudent in AllStudent)
-            {
-                if (email == aStudent.Email)
-                {
-                    aStudent.Email = student.Email;
-                    return aStudent;
-                }
-            }
-            return result;
-        }
-
-        public static Student DeleteStudent(string email)
-        {
-            var student = AllStudent.FirstOrDefault(x => x.Email == email);
-            AllStudent = AllStudent.Where(x => x.Email != student.Email).ToList();
-            return student;
-        }
-
-
-    }
+   
 }
