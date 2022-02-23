@@ -12,6 +12,7 @@ namespace BLL
         public static void AllDepandency(IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IDepartmentService, DepartmentService>();
+            services.AddTransient<IStudentService, StudentService>();
         }
 
         
