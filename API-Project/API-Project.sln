@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{F0A214B4-4DBB-46C9-9C51-CD7DF610915F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLL", "DLL\DLL.csproj", "{4320659E-915D-4F25-BB09-66A626D9C159}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DLL", "DLL\DLL.csproj", "{4320659E-915D-4F25-BB09-66A626D9C159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{12A987EE-C2E7-44CC-AEF7-927929A89F01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4320659E-915D-4F25-BB09-66A626D9C159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4320659E-915D-4F25-BB09-66A626D9C159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4320659E-915D-4F25-BB09-66A626D9C159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A987EE-C2E7-44CC-AEF7-927929A89F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A987EE-C2E7-44CC-AEF7-927929A89F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A987EE-C2E7-44CC-AEF7-927929A89F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A987EE-C2E7-44CC-AEF7-927929A89F01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
