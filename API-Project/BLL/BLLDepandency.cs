@@ -1,9 +1,9 @@
-﻿using BLL.Services;
+﻿using BLL.Request;
+using BLL.Services;
+using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace BLL
 {
@@ -13,8 +13,13 @@ namespace BLL
         {
             services.AddTransient<IDepartmentService, DepartmentService>();
             services.AddTransient<IStudentService, StudentService>();
+
+            AllFluentValidationDepandency(services);
         }
 
-        
+        private static void AllFluentValidationDepandency(IServiceCollection services)
+        {
+            services.AddTransient<IValidator<DepartmentInsertRequestViewModel>, DepartmentInsertRequestViewModelValidator>();
+        }
     }
 }
