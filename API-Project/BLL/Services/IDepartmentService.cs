@@ -1,4 +1,5 @@
-﻿using DLL.Models;
+﻿using BLL.Request;
+using DLL.Models;
 using DLL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace BLL.Services
 {
     public interface IDepartmentService
     {
-        Task<Department> InsertAsync(Department department);
+        Task<Department> InsertAsync(DepartmentInsertRequestViewModel request);
         Task<List<Department>> GetAllAsync();
         Task<Department> UpdateAsync(string code, Department department);
         Task<Department> DeleteAsync(string code);
@@ -25,9 +26,12 @@ namespace BLL.Services
             _departmentRepository = departmentRepository;
         }
 
-        public async Task<Department> InsertAsync(Department department)
+        public async Task<Department> InsertAsync(DepartmentInsertRequestViewModel request)
         {
-            return await _departmentRepository.InsertAsync(department); 
+            Department adepartmet = new Department();
+            adepartmet.Code = request.Code;
+            adepartmet.Name = request.Name;
+            return await _departmentRepository.InsertAsync(adepartmet); 
         }
         public async Task<List<Department>> GetAllAsync()
         {
