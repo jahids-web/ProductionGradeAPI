@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.Request;
+using BLL.Services;
 using DLL.Models;
 using DLL.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -33,9 +34,9 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Insert(Department department)
+        public async Task<IActionResult> Insert(DepartmentInsertRequestViewModel request)
         {
-            return Ok(await _departmentService.InsertAsync(department));
+            return Ok(await _departmentService.InsertAsync(request));
         }
 
         [HttpPut("{code}")]
