@@ -15,8 +15,8 @@ namespace BLL.Request
     {
         public DepartmentInsertRequestViewModelValidator()
         {
-            RuleFor(x => x.Name).NotNull().NotEmpty().MaximumLength(4).MinimumLength(25);
-            RuleFor(x => x.Code).NotNull().NotEmpty().MinimumLength(3).MaximumLength(10);
+            RuleFor(x => x.Name).NotNull().NotEmpty();
+            RuleFor(x => x.Code).NotNull().NotEmpty();
             
         }
 
