@@ -13,8 +13,8 @@ namespace DLL.Repositories
         Task<Department> UpdateAsync(string code, Department department);
         Task<Department> DeleteAsync(string code);
         Task<Department> GetAAsync(string code);
-
-
+        Task <Department> FindByCode(string code);
+        Task <Department> FindByName(string name);
     }
 
     public class DepartmentRepository : IDepartmentRepository
@@ -63,8 +63,14 @@ namespace DLL.Repositories
 
     }
 
+        public async Task<Department> FindByCode(string code)
+        {
+            return await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
+        }
 
-
-
+        public async Task<Department> FindByName(string name)
+        {
+            return await _context.Departments.FirstOrDefaultAsync(x => x.Name == name);
+        }
     }
 }
