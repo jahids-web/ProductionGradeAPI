@@ -19,7 +19,7 @@ namespace DLL.Repositories
         void UpdateRange(List<T> entryList);
         void Delete(T entry);   
         void DeleteRange(List<T> entryList);
-        Task<T> FindSingLeAsyc(Expression<Func<T, bool>> exception);
+        Task<T> FindSingLeAsync(Expression<Func<T, bool>> exception);
 
     }
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
@@ -60,7 +60,7 @@ namespace DLL.Repositories
             _context.Set<T>().RemoveRange(entryList);
         }
 
-        public async Task<T> FindSingLeAsyc(Expression<Func<T, bool>> exception)
+        public async Task<T> FindSingLeAsync(Expression<Func<T, bool>> exception)
         {
             return await _context.Set<T>().FirstOrDefaultAsync(exception);
         }
