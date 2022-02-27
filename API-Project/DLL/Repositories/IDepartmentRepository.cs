@@ -10,7 +10,7 @@ namespace DLL.Repositories
     {
         Task<Department> InsertAsync(Department department);
         Task<List<Department>> GetAllAsync();
-        Task<Department> UpdateAsync(string code, Department department);
+        Task<bool> UpdateAsync(Department department);
         Task<bool> DeleteAsync(Department department);
         Task<Department> GetAAsync(string code);
         Task <Department> FindByCode(string code);
@@ -54,13 +54,14 @@ namespace DLL.Repositories
 
     }
 
-    public async Task<Department> UpdateAsync(string code,Department department)
+    public async Task<bool> UpdateAsync(Department department)
     {
-        var findDepartment = await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
-            findDepartment.Name = department.Name;
-            _context.Departments.Update(findDepartment);
-            await _context.SaveChangesAsync();
-        return department;
+            _context.Departments.Update(department);
+          if(await _context.SaveChangesAsync() > 0)
+                {
+                    return true;
+                };
+        return false;
 
     }
 
