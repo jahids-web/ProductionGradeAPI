@@ -12,8 +12,9 @@ namespace DLL.Repositories
     public interface IRepositoryBase<T> where T : class
     {
         IQueryable<T> QueryAll(Expression<Func<T, bool>> expression = null);
-        List<T> GetList(Expression<Func<T, bool>> expression = null);
+        Task<List<T>> GetList(Expression<Func<T, bool>> expression = null);
         Task CreateAsync(T entry);
+        Task CreateAsyncRange(List<T> entryList);
         void Update(T entry);
         void UpdateRange(List<T> entryList);
         void Delete(T entry);   
@@ -36,37 +37,43 @@ namespace DLL.Repositories
             return expression != null ? _context.Set<T>().AsQueryable().Where(expression).AsNoTracking(): _context.Set<T>().AsQueryable().AsNoTracking();
         }
 
-        public List<T> GetList(Expression<Func<T, bool>> expression = null)
+        public async Task<List<T>> GetList(Expression<Func<T, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return  expression != null ? await _context.Set<T>().AsQueryable().Where(expression).AsNoTracking().ToListAsync() :
+              await  _context.Set<T>().AsQueryable().AsNoTracking().ToListAsync();
         }
-        public Task CreateAsync(T entry)
+        public async Task CreateAsync(T entry)
         {
-            throw new NotImplementedException();
+            await _context.Set<T>().AddAsync(entry);
         }
-
+        public async Task CreateAsyncRange(List<T> entryList)
+        {
+           await _context.Set<T>().AddRangeAsync(entryList);
+        }
         public void Delete(T entry)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Remove(entry);
         }
 
         public void DeleteRange(List<T> entryList)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().RemoveRange(entryList);
         }
 
-        public Task<T> FindSingLeAsyc(Expression<Func<T, bool>> exception)
+        public async Task<T> FindSingLeAsyc(Expression<Func<T, bool>> exception)
         {
-            throw new NotImplementedException();
+            return await _context.Set<T>().FirstOrDefaultAsync(exception);
         }
         public void Update(T entry)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Update(entry);
         }
 
         public void UpdateRange(List<T> entryList)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().UpdateRange(entryList);
         }
+
+       
     }
 }
