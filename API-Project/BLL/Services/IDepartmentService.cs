@@ -50,7 +50,16 @@ namespace BLL.Services
         }
         public async Task<Department> DeleteAsync(string code)
         {
-            return await _departmentRepository.DeleteAsync(code);
+            var department = await _departmentRepository.GetAAsync(code);
+            if (department == null)
+            {
+                throw new Exception("Department not found");
+            }
+           if( await _departmentRepository.DeleteAsync(department))
+            {
+                return department;
+            }
+            throw new Exception("Some Problem for delete data");
         }
 
         public async Task<bool> IsCodeExists(string code)
