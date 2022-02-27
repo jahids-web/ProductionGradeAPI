@@ -3,8 +3,8 @@ using DLL.Models;
 using DLL.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
+using Utility.Exceptions;
 
 namespace BLL.Services
 {
@@ -53,13 +53,13 @@ namespace BLL.Services
             var department = await _departmentRepository.GetAAsync(code);
             if (department == null)
             {
-                throw new Exception("Department not found");
+                throw new ApplicationValidationException("Depatment Not Found");
             }
            if( await _departmentRepository.DeleteAsync(department))
             {
                 return department;
             }
-            throw new Exception("Some Problem for delete data");
+            throw new ApplicationValidationException("Some Problem for delete data");
         }
 
         public async Task<bool> IsCodeExists(string code)
