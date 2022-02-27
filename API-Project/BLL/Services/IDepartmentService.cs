@@ -41,12 +41,45 @@ namespace BLL.Services
         }
         public async Task<Department> GetAAsync(string code)
         {
-            return await _departmentRepository.GetAAsync(code);
+            var department = await _departmentRepository.GetAAsync(code);
+            if (department == null)
+            {
+                throw new ApplicationValidationException("Depatment Not Found");
+            }
+            return department;
         }
       
-        public async Task<Department> UpdateAsync(string code, Department department)
+        public async Task<Department> UpdateAsync(string code, Department adepartment)
         {
-            return await _departmentRepository.UpdateAsync(code, department);
+            var department = await _departmentRepository.GetAAsync(code);
+            if (department == null)
+            {
+                throw new ApplicationValidationException("Depatment Not Found");
+            }
+            if (!string.IsNullOrWhiteSpace(adepartment.Code))
+            {
+                var existsAlreasyCode = await _departmentRepository.FindByCode(adepartment.Code);
+                if(existsAlreasyCode!= null)
+                {
+                    throw new ApplicationValidationException("You updated Code alrady present in our systam");
+                }
+                department.Code = adepartment.Code;
+            }
+
+            if (!string.IsNullOrWhiteSpace(adepartment.Name))
+            {
+                var existsAlreasyCode = await _departmentRepository.FindByName(adepartment.Name);
+                if (existsAlreasyCode != null)
+                {
+                    throw new ApplicationValidationException("You updated Name alrady present in our systam");
+                }
+                department.Name = adepartment.Name;
+            }
+            if(await _departmentRepository.UpdateAsync(department))
+            {
+                return department;
+            }
+            throw new ApplicationValidationException("In Update have Some Problem");
         }
         public async Task<Department> DeleteAsync(string code)
         {
