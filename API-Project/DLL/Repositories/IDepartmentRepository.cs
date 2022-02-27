@@ -11,7 +11,7 @@ namespace DLL.Repositories
         Task<Department> InsertAsync(Department department);
         Task<List<Department>> GetAllAsync();
         Task<Department> UpdateAsync(string code, Department department);
-        Task<Department> DeleteAsync(string code);
+        Task<bool> DeleteAsync(Department department);
         Task<Department> GetAAsync(string code);
         Task <Department> FindByCode(string code);
         Task <Department> FindByName(string name);
@@ -37,13 +37,14 @@ namespace DLL.Repositories
         return await _context.Departments.ToListAsync();
     }
 
-    public async Task<Department> DeleteAsync(string code)
+    public async Task<bool> DeleteAsync(Department department)
     {
-        var department = await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
-
         _context.Departments.Remove(department);
-        await _context.SaveChangesAsync();
-        return department;
+        if (await _context.SaveChangesAsync() > 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public async Task<Department> GetAAsync(string code)
@@ -56,7 +57,7 @@ namespace DLL.Repositories
     public async Task<Department> UpdateAsync(string code,Department department)
     {
         var findDepartment = await _context.Departments.FirstOrDefaultAsync(x => x.Code == code);
-            findDepartment.Code = department.Code;
+            findDepartment.Name = department.Name;
             _context.Departments.Update(findDepartment);
             await _context.SaveChangesAsync();
         return department;
@@ -72,5 +73,8 @@ namespace DLL.Repositories
         {
             return await _context.Departments.FirstOrDefaultAsync(x => x.Name == name);
         }
+
+      
+      
     }
 }
