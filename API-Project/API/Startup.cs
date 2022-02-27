@@ -1,3 +1,4 @@
+using API.Middeware;
 using BLL;
 using DLL;
 using FluentValidation.AspNetCore;
@@ -27,7 +28,7 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddFluentValidation();
+            services.AddControllers().AddFluentValidation().AddNewtonsoftJson();
             SetapSwagger(services);
             services.AddApiVersioning(config =>
             {
@@ -69,6 +70,9 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ExceptionMiddleware>();
+
             app.UseSwagger();
             
             app.UseSwaggerUI(c =>
