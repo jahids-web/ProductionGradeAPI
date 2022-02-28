@@ -1,6 +1,8 @@
-﻿namespace DLL.Models
+﻿using DLL.Interfaces;
+
+namespace DLL.Models
 {
-    public class Student
+    public class Student : ISoftDeletTable
     {
         public int StudentId { get; set; }
         public string Name{ get; set; }
