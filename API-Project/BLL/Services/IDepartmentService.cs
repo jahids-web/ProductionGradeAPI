@@ -33,15 +33,20 @@ namespace BLL.Services
             Department adepartmet = new Department();
             adepartmet.Code = request.Code;
             adepartmet.Name = request.Name;
-            return await _departmentRepository.InsertAsync(adepartmet); 
+            await _departmentRepository.CreateAsync(adepartmet);
+            if (await _departmentRepository.SaveCompletedAsync())
+            {
+                return adepartmet;
+            }
+            throw new ApplicationValidationException("Depatment insert has some problem");
         }
         public async Task<List<Department>> GetAllAsync()
         {
-            return await _departmentRepository.GetAllAsync();
+            return await _departmentRepository.GetList();
         }
         public async Task<Department> GetAAsync(string code)
         {
-            var department = await _departmentRepository.GetAAsync(code);
+            var department = await _departmentRepository.FindSingLeAsync( x=>x.Code==code);
             if (department == null)
             {
                 throw new ApplicationValidationException("Depatment Not Found");
@@ -51,15 +56,15 @@ namespace BLL.Services
       
         public async Task<Department> UpdateAsync(string code, Department adepartment)
         {
-            var department = await _departmentRepository.GetAAsync(code);
+            var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
             if (department == null)
             {
                 throw new ApplicationValidationException("Depatment Not Found");
             }
             if (!string.IsNullOrWhiteSpace(adepartment.Code))
             {
-                var existsAlreasyCode = await _departmentRepository.FindByCode(adepartment.Code);
-                if(existsAlreasyCode!= null)
+                var existsAlreasyCode = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
+                if (existsAlreasyCode!= null)
                 {
                     throw new ApplicationValidationException("You updated Code alrady present in our systam");
                 }
@@ -68,14 +73,15 @@ namespace BLL.Services
 
             if (!string.IsNullOrWhiteSpace(adepartment.Name))
             {
-                var existsAlreasyCode = await _departmentRepository.FindByName(adepartment.Name);
+                var existsAlreasyCode = await _departmentRepository.FindSingLeAsync(x => x.Name == adepartment.Name);
                 if (existsAlreasyCode != null)
                 {
                     throw new ApplicationValidationException("You updated Name alrady present in our systam");
                 }
                 department.Name = adepartment.Name;
             }
-            if(await _departmentRepository.UpdateAsync(department))
+            _departmentRepository.Update(department);
+            if(await _departmentRepository.SaveCompletedAsync())
             {
                 return department;
             }
@@ -83,12 +89,13 @@ namespace BLL.Services
         }
         public async Task<Department> DeleteAsync(string code)
         {
-            var department = await _departmentRepository.GetAAsync(code);
+            var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
             if (department == null)
             {
                 throw new ApplicationValidationException("Depatment Not Found");
             }
-           if( await _departmentRepository.DeleteAsync(department))
+                _departmentRepository.Delete(department);
+            if (await _departmentRepository.SaveCompletedAsync())
             {
                 return department;
             }
@@ -97,8 +104,8 @@ namespace BLL.Services
 
         public async Task<bool> IsCodeExists(string code)
         {
-           var department = await _departmentRepository.FindByCode(code);
-            if(department == null)
+           var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
+            if (department == null)
             {
                 return true;
             }
@@ -107,7 +114,7 @@ namespace BLL.Services
 
         public async Task<bool> IsNameExists(string name)
         {
-            var department = await _departmentRepository.FindByName(name);
+            var department = await _departmentRepository.FindSingLeAsync(x => x.Name == name);
             if (department == null)
             {
                 return true;
