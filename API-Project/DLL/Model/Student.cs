@@ -2,7 +2,7 @@
 
 namespace DLL.Models
 {
-    public class Student : ISoftDeletTable
+    public class Student : ISoftDeletable
     {
         public int StudentId { get; set; }
         public string Name{ get; set; }
