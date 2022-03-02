@@ -46,29 +46,7 @@ namespace DLL.DataContext
             base.OnModelCreating(modelBuilder);
         }
 
-        //public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
-        //{
-        //    await OnBeforeSaving();
-        //    return await base.SaveChangesAsync(cancellationToken);
-        //}
-
-        //private async Task OnBeforeSaving()
-        //{
-        //    ChangeTracker.DetectChanges();
-        //    var entries = ChangeTracker.Entries()
-        //        .Where(e => e.State != EntityState.Detached && e.State != EntityState.Unchanged);
-
-        //    foreach (var entry in entries)
-        //    {
-        //        switch (entry.State)
-        //        {
-        //            case EntityState.Deleted:
-        //                entry.Property(IsDeletedProperty).CurrentValue = true;
-        //                entry.State = EntityState.Modified;
-        //                break;
-        //        }
-        //    }
-        //}
+       
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             OnBeforeSavingData();
