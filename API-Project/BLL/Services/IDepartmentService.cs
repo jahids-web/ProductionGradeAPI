@@ -28,8 +28,6 @@ namespace BLL.Services
 
         public async Task<Department> InsertAsync(Department department)
         {
-            //Department adepartmet = new Department();
-        
             await _departmentRepository.CreateAsync(department);
             if (await _departmentRepository.SaveCompletedAsync())
             {
@@ -98,7 +96,7 @@ namespace BLL.Services
             }
             throw new ApplicationValidationException("Some Problem for delete data");
         }
-
+        
       
     }
 }
