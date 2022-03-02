@@ -10,9 +10,9 @@ namespace DLL.Models
         public string Name { get; set; }
         public string  Code { get; set; }
 
-        //internal List<Department> ToList()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        internal List<Department> ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
