@@ -14,8 +14,7 @@ namespace BLL.Services
         Task<Department> UpdateAsync(string code, Department department);
         Task<Department> DeleteAsync(string code);
         Task<Department> GetAAsync(string code);
-        Task<bool>IsCodeExists(string code);
-        Task<bool>IsNameExists(string name);
+
     }
 
     public class DepartmentService : IDepartmentService
@@ -100,24 +99,6 @@ namespace BLL.Services
             throw new ApplicationValidationException("Some Problem for delete data");
         }
 
-        public async Task<bool> IsCodeExists(string code)
-        {
-           var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
-            if (department == null)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public async Task<bool> IsNameExists(string name)
-        {
-            var department = await _departmentRepository.FindSingLeAsync(x => x.Name == name);
-            if (department == null)
-            {
-                return true;
-            }
-            return false;
-        }
+      
     }
 }
