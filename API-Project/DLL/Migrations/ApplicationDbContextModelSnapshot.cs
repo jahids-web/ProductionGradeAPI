@@ -65,6 +65,9 @@ namespace DLL.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -82,7 +85,18 @@ namespace DLL.Migrations
 
                     b.HasKey("StudentId");
 
+                    b.HasIndex("DepartmentId");
+
                     b.ToTable("students");
+                });
+
+            modelBuilder.Entity("DLL.Models.Student", b =>
+                {
+                    b.HasOne("DLL.Models.Department", "Department")
+                        .WithMany("Students")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
