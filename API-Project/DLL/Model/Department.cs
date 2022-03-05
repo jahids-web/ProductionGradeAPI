@@ -15,16 +15,12 @@ namespace DLL.Models
         public DateTimeOffset lastUpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
 
+        public ICollection<Student> students { get; set; }
 
 
 
 
 
-
-
-        //internal List<Department> ToList()
-        //{
-        //    throw new NotImplementedException();
-        //}
+      
     }
 }
