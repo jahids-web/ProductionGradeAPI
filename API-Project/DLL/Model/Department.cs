@@ -1,5 +1,6 @@
 ﻿using DLL.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace DLL.Models
 {
@@ -14,7 +15,7 @@ namespace DLL.Models
         public DateTimeOffset lastUpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
 
-        
+        public ICollection<Student> Student { get; set; }
 
 
 

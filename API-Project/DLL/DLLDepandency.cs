@@ -1,7 +1,4 @@
-﻿using DLL.DataContext;
-using DLL.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using DLL.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -9,16 +6,11 @@ namespace DLL
 {
     public class DLLDepandency
     {
-        public static void AllDepandency(IServiceCollection services, IConfiguration configuration)
+        public static void ALLDependency(IServiceCollection services)
         {
-            var mm = configuration.GetConnectionString("DatabaseConnection");
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
-
-            //repository dependency
-            //services.AddTransient<IUnitOfWork, UnitOfWork.UnitOfWork>();
-            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
-            services.AddTransient<IStudentRepository, StudentRepository>();
+            services.AddTransient<IUnitOfWork, UnitOfWork.UnitOfWork>();
+            // services.AddTransient<IStudentRepository,StudentRepository>();
+            // services.AddTransient<IDepartmentRepository,DepartmentRepository>();
         }
     }
 }
