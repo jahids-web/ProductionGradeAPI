@@ -1,6 +1,5 @@
 ﻿using DLL.Interfaces;
 using System;
-using System.Collections.Generic;
 
 namespace DLL.Models
 {
