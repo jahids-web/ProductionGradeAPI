@@ -1,6 +1,7 @@
 using API.Middeware;
 using BLL;
 using DLL;
+using DLL.DbContext;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,8 +36,13 @@ namespace API
                 config.DefaultApiVersion = new ApiVersion(1, 0); 
                 config.AssumeDefaultVersionWhenUnspecified = true;
             });
-            DLLDepandency.AllDepandency(services, Configuration);
+            services.AddDbContext<ApplicationDbContext>(options =>
+              options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+
+            DLLDepandency.ALLDependency(services, Configuration);
             BLLDepandency.AllDepandency(services, Configuration);
+
+
         }
 
         private void SetapSwagger(IServiceCollection services)
