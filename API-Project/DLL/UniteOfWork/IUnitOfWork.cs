@@ -1,8 +1,8 @@
-﻿using DLL.DataContext;
+﻿using DLL.DbContext;
 using System;
 using System.Threading.Tasks;
 
-namespace DLL.Repositories
+namespace DLL.UniteOfWork
 {
     public interface IUnitOfWork
     {

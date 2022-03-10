@@ -8,20 +8,21 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DLL.DataContext
+namespace DLL.DbContext
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        private const string IsDeletedProperty = "IsDeleted";
-
-        private static readonly MethodInfo _propertyMethod = typeof(EF)
-            .GetMethod(nameof(EF.Property), BindingFlags.Static | BindingFlags.Public).MakeGenericMethod(typeof(bool));
-
-
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
 
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Student> students { get; set; }
+
+        private const string IsDeletedProperty = "IsDeleted";
+
+        private static readonly MethodInfo _propertyMethod = typeof(EF)
+            .GetMethod(nameof(EF.Property), BindingFlags.Static | BindingFlags.Public).MakeGenericMethod(typeof(bool));
         private static LambdaExpression GetIsDeletedRestriction(Type type)
         {
             var parm = Expression.Parameter(type, "it");
@@ -90,7 +91,6 @@ namespace DLL.DataContext
         }
 
 
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Student> students { get; set; }
+       
     }
 }

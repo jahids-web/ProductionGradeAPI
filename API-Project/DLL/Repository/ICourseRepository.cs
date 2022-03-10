@@ -1,11 +1,11 @@
-﻿using DLL.DataContext;
+﻿using DLL.DbContext;
 using DLL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DLL.Repositories
+namespace DLL.UniteOfWork
 {
     public interface ICourseRepository : IRepositoryBase<CourseRepository>
     {
