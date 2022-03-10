@@ -1,5 +1,5 @@
 ﻿using DLL.Models;
-using DLL.Repositories;
+using DLL.UniteOfWork;
 using System.Threading.Tasks;
 
 namespace BLL.Services

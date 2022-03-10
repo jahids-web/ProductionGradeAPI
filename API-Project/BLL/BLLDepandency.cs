@@ -14,12 +14,9 @@ namespace BLL
             services.AddTransient<IDepartmentService, DepartmentService>();
             services.AddTransient<IStudentService, StudentService>();
 
-            //AllFluentValidationDepandency(services);
+         
         }
 
-        //private static void AllFluentValidationDepandency(IServiceCollection services)
-        //{
-        //    services.AddTransient<IValidator<DepartmentInsertRequestViewModel>, DepartmentInsertRequestViewModelValidator>();
-        //}
+       
     }
 }
