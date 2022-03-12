@@ -36,8 +36,7 @@ namespace API
                 config.DefaultApiVersion = new ApiVersion(1, 0); 
                 config.AssumeDefaultVersionWhenUnspecified = true;
             });
-            services.AddDbContext<ApplicationDbContext>(options =>
-              options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+            
 
             DLLDepandency.ALLDependency(services, Configuration);
             BLLDepandency.AllDepandency(services, Configuration);
