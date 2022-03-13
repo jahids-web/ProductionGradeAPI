@@ -18,18 +18,17 @@ namespace BLL.Services
 
     public class DepartmentService : IDepartmentService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IDepartmentRepository _departmentRepository;
 
-
-        public DepartmentService(IUnitOfWork unitOfWork)
+        public DepartmentService(IDepartmentRepository departmentRepository)
         {
-            _unitOfWork = unitOfWork;
+            _departmentRepository = departmentRepository;
         }
 
         public async Task<Department> InsertAsync(Department department)
         {
-            await _unitOfWork.DepartmentRepository.CreateAsync(department);
-            if (await _unitOfWork.DepartmentRepository.SaveCompletedAsync())
+            await _departmentRepository.CreateAsync(department);
+            if (await _departmentRepository.SaveCompletedAsync())
             {
                 return department;
             }
@@ -37,11 +36,11 @@ namespace BLL.Services
         }
         public async Task<List<Department>> GetAllAsync()
         {
-            return await _unitOfWork.DepartmentRepository.GetList();
+            return await _departmentRepository.GetList();
         }
         public async Task<Department> GetAAsync(string code)
         {
-            var department = await _unitOfWork.DepartmentRepository.FindSingLeAsync( x=>x.Code==code);
+            var department = await _departmentRepository.FindSingLeAsync( x=>x.Code==code);
             if (department == null)
             {
                 throw new ApplicationValidationException("Depatment Not Found");
@@ -51,14 +50,14 @@ namespace BLL.Services
       
         public async Task<Department> UpdateAsync(string code, Department adepartment)
         {
-            var department = await _unitOfWork.DepartmentRepository.FindSingLeAsync(x => x.Code == code);
+            var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
             if (department == null)
             {
                 throw new ApplicationValidationException("Depatment Not Found");
             }
             if (!string.IsNullOrWhiteSpace(adepartment.Code))
             {
-                var existsAlreasyCode = await _unitOfWork.DepartmentRepository.FindSingLeAsync(x => x.Code == code);
+                var existsAlreasyCode = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
                 if (existsAlreasyCode!= null)
                 {
                     throw new ApplicationValidationException("You updated Code alrady present in our systam");
@@ -68,15 +67,15 @@ namespace BLL.Services
 
             if (!string.IsNullOrWhiteSpace(adepartment.Name))
             {
-                var existsAlreasyCode = await _unitOfWork.DepartmentRepository.FindSingLeAsync(x => x.Name == adepartment.Name);
+                var existsAlreasyCode = await _departmentRepository.FindSingLeAsync(x => x.Name == adepartment.Name);
                 if (existsAlreasyCode != null)
                 {
                     throw new ApplicationValidationException("You updated Name alrady present in our systam");
                 }
                 department.Name = adepartment.Name;
             }
-            _unitOfWork.DepartmentRepository.Update(department);
-            if(await _unitOfWork.DepartmentRepository.SaveCompletedAsync())
+            _departmentRepository.Update(department);
+            if(await _departmentRepository.SaveCompletedAsync())
             {
                 return department;
             }
@@ -84,13 +83,13 @@ namespace BLL.Services
         }
         public async Task<Department> DeleteAsync(string code)
         {
-            var department = await _unitOfWork.DepartmentRepository.FindSingLeAsync(x => x.Code == code);
+            var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
             if (department == null)
             {
                 throw new ApplicationValidationException("Depatment Not Found");
             }
-            _unitOfWork.DepartmentRepository.Delete(department);
-            if (await _unitOfWork.DepartmentRepository.SaveCompletedAsync())
+            _departmentRepository.Delete(department);
+            if (await _departmentRepository.SaveCompletedAsync())
             {
                 return department;
             }
