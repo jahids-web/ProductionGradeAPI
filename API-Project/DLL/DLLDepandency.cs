@@ -15,10 +15,8 @@ namespace DLL
             services.AddDbContext<ApplicationDbContext>(options =>
               options.UseSqlServer(configuration.GetConnectionString("DatabaseConnection")));
 
-            services.AddTransient<IUnitOfWork, UnitOfWork.UnitOfWork>();
-            
-            // services.AddTransient<IStudentRepository,StudentRepository>();
-            // services.AddTransient<IDepartmentRepository,DepartmentRepository>();
+            services.AddTransient<IStudentRepository, StudentRepository>();
+            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
         }
     }
 }
