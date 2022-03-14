@@ -13,7 +13,7 @@ namespace DLL.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-
+#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
@@ -65,9 +65,6 @@ namespace DLL.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -85,20 +82,9 @@ namespace DLL.Migrations
 
                     b.HasKey("StudentId");
 
-                    b.HasIndex("DepartmentId");
-
                     b.ToTable("students");
                 });
-
-            modelBuilder.Entity("DLL.Models.Student", b =>
-                {
-                    b.HasOne("DLL.Models.Department", "Department")
-                        .WithMany("Student")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
+#pragma warning restore 612, 618
         }
     }
 }
