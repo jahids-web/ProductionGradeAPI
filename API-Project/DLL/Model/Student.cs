@@ -3,7 +3,7 @@ using System;
 
 namespace DLL.Models
 {
-    public class Student : ISoftDeletable,ITrackable
+    public class Student : ISoftDeletable
     {
         public int StudentId { get; set; }
         public string Name{ get; set; }

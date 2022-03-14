@@ -1,26 +1,20 @@
 ﻿using DLL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace DLL.Models
+namespace DLL.Model
 {
-    public class Department:ISoftDeletable
+    public class Teacher : ISoftDeletable
     {
-        public int DepartmentId { get; set; }
-        public string Name { get; set; }
-        public string  Code { get; set; }
+        public int TeacherId { get; set; }  
+        public string TeacherName { get; set; }
+        public string TeacherType { get; set; }
+        public string TeacherEmail { get; set; }    
 
         public DateTimeOffset CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public DateTimeOffset lastUpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
-
-       
-
-
-
-
-
-      
     }
 }
