@@ -2,7 +2,9 @@ G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\BLL.deps.json
 G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\BLL.dll
 G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\BLL.pdb
 G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\DLL.dll
+G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\Utility.dll
 G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\DLL.pdb
+G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\Utility.pdb
 G:\C#\ProductionGradeAPI\API-Project\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.AssemblyReference.cache
 G:\C#\ProductionGradeAPI\API-Project\BLL\obj\Debug\netcoreapp3.1\BLL.GeneratedMSBuildEditorConfig.editorconfig
 G:\C#\ProductionGradeAPI\API-Project\BLL\obj\Debug\netcoreapp3.1\BLL.AssemblyInfoInputs.cache
@@ -11,5 +13,3 @@ G:\C#\ProductionGradeAPI\API-Project\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.Core
 G:\C#\ProductionGradeAPI\API-Project\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CopyComplete
 G:\C#\ProductionGradeAPI\API-Project\BLL\obj\Debug\netcoreapp3.1\BLL.dll
 G:\C#\ProductionGradeAPI\API-Project\BLL\obj\Debug\netcoreapp3.1\BLL.pdb
-G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\Utility.dll
-G:\C#\ProductionGradeAPI\API-Project\BLL\bin\Debug\netcoreapp3.1\Utility.pdb
