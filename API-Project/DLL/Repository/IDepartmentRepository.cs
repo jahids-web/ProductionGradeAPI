@@ -1,8 +1,5 @@
 ﻿using DLL.DbContext;
 using DLL.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace DLL.UniteOfWork
 {
