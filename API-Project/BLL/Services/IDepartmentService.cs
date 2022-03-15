@@ -47,7 +47,7 @@ namespace BLL.Services
             }
             return department;
         }
-      
+
         public async Task<Department> UpdateAsync(string code, Department adepartment)
         {
             var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
@@ -58,7 +58,7 @@ namespace BLL.Services
             if (!string.IsNullOrWhiteSpace(adepartment.Code))
             {
                 var existsAlreasyCode = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
-                if (existsAlreasyCode!= null)
+                if (existsAlreasyCode != null)
                 {
                     throw new ApplicationValidationException("You updated Code alrady present in our systam");
                 }
@@ -75,7 +75,7 @@ namespace BLL.Services
                 department.Name = adepartment.Name;
             }
             _departmentRepository.Update(department);
-            if(await _departmentRepository.SaveCompletedAsync())
+            if (await _departmentRepository.SaveCompletedAsync())
             {
                 return department;
             }
