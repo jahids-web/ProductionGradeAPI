@@ -1,5 +1,7 @@
 ﻿using DLL.Interfaces;
+using DLL.Model;
 using System;
+using System.Collections.Generic;
 
 namespace DLL.Models
 {
@@ -17,5 +19,7 @@ namespace DLL.Models
         public string UpdatedBy { get; set; }
 
         public Department Department { get; set; }
+
+        public ICollection<CourseStudent> CourseStudent { get; set; }
     }
 }

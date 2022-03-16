@@ -1,11 +1,9 @@
-﻿using DLL.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DLL.Interfaces;
+using DLL.Models;
 
 namespace DLL.Model
 {
-    public class CourseStudent
+    public class CourseStudent : ISoftDeletable
     {
         public int CourseId { get; set; }
         public Course Course { get; set; }  

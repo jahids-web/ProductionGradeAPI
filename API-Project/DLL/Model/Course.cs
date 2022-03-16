@@ -16,5 +16,6 @@ namespace DLL.Model
         public DateTimeOffset lastUpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
 
+        public ICollection<CourseStudent> CoursesStudent { get; set; }
     }
 }

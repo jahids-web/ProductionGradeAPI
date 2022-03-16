@@ -1,4 +1,5 @@
 ﻿using DLL.Interfaces;
+using DLL.Model;
 using DLL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -43,6 +44,18 @@ namespace DLL.DbContext
 
                 }
             }
+            modelBuilder.Entity<CourseStudent>()
+            .HasKey(bc => new { bc.CourseId, bc.StudentId });
+            modelBuilder.Entity<CourseStudent>()
+                .HasOne(bc => bc.Course)
+                .WithMany(b => b.CoursesStudent)
+                .HasForeignKey(bc => bc.CourseId);
+            modelBuilder.Entity<CourseStudent>()
+                .HasOne(bc => bc.Student)
+                .WithMany(c => c.CourseStudent)
+                .HasForeignKey(bc => bc.StudentId);
+
+
 
             base.OnModelCreating(modelBuilder);
         }
