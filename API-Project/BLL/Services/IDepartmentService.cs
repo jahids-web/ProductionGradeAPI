@@ -57,7 +57,7 @@ namespace BLL.Services
             }
             if (!string.IsNullOrWhiteSpace(adepartment.Code))
             {
-                var existsAlreasyCode = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
+                var existsAlreasyCode = await _departmentRepository.FindSingLeAsync(x => x.Code == adepartment.Code);
                 if (existsAlreasyCode != null)
                 {
                     throw new ApplicationValidationException("You updated Code alrady present in our systam");
