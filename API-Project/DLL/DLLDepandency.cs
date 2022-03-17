@@ -16,6 +16,7 @@ namespace DLL
 
             services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
            
         }
     }
