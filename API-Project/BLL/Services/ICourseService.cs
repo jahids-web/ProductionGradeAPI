@@ -28,6 +28,7 @@ namespace BLL.Services
 
         public async Task<Course> InsertAsync(Course course)
         {
+          
             await _courseRepository.CreateAsync(course);
             if (await _courseRepository.SaveCompletedAsync())
             {
@@ -54,7 +55,7 @@ namespace BLL.Services
             var course = await _courseRepository.FindSingLeAsync(x => x.Code == code);
             if (course == null)
             {
-                throw new ApplicationValidationException("Depatment Not Found");
+                throw new ApplicationValidationException("Course Not Found");
             }
             if (!string.IsNullOrWhiteSpace(aCourse.Code))
             {
