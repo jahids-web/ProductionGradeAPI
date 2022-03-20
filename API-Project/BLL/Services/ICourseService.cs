@@ -12,7 +12,7 @@ namespace BLL.Services
     {
         Task<Course> InsertAsync(CourseInsertRequestViewModel request);
         Task<List<Course>> GetAllAsync();
-        Task<Course> UpdateAsync(string code, Course course);
+        Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel course);
         Task<Course> DeleteAsync(string code);
         Task<Course> GetAAsync(string code);
 
@@ -54,7 +54,7 @@ namespace BLL.Services
             return course;
         }
 
-        public async Task<Course> UpdateAsync(string code, Course aCourse)
+        public async Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel aCourse)
         {
             var course = await _courseRepository.FindSingLeAsync(x => x.Code == code);
             if (course == null)
