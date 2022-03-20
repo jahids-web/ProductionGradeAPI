@@ -1,4 +1,5 @@
-﻿using DLL.Model;
+﻿using BLL.Request;
+using DLL.Model;
 using DLL.Models;
 using DLL.UniteOfWork;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace BLL.Services
 {
     public interface ICourseService
     {
-        Task<Course> InsertAsync(Course course);
+        Task<Course> InsertAsync(CourseInsertRequestViewModel request);
         Task<List<Course>> GetAllAsync();
         Task<Course> UpdateAsync(string code, Course course);
         Task<Course> DeleteAsync(string code);
@@ -26,9 +27,12 @@ namespace BLL.Services
             _courseRepository = courseRepository;
         }
 
-        public async Task<Course> InsertAsync(Course course)
+        public async Task<Course> InsertAsync(CourseInsertRequestViewModel request)
         {
-          
+            var course = new Course();
+            course.Code = request.Code;
+            course.Name = request.Name;
+            course.Credit = request.Credit;
             await _courseRepository.CreateAsync(course);
             if (await _courseRepository.SaveCompletedAsync())
             {
