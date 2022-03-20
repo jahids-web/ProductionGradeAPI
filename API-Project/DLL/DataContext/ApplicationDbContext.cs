@@ -55,9 +55,6 @@ namespace DLL.DbContext
                 .HasOne(bc => bc.Student)
                 .WithMany(c => c.CourseStudent)
                 .HasForeignKey(bc => bc.StudentId);
-
-
-
             base.OnModelCreating(modelBuilder);
         }
 
