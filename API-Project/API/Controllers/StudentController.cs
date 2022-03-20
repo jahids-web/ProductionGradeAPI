@@ -31,13 +31,13 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Insert(StudentInsertRequestViewModel studentRequest)
+        public async Task<IActionResult> Insert(Student student)
         {
-            return Ok(await _studentService.InsertAsync(studentRequest));
+            return Ok(await _studentService.InsertAsync(student));
         }
 
         [HttpPut("{email}")]
-        public async Task<IActionResult> Update(string email, StudentInsertRequestViewModel student)
+        public async Task<IActionResult> Update(string email, Student student)
         {
             return Ok(await _studentService.UpdateAsync(email,student));
         }

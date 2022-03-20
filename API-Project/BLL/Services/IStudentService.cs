@@ -1,8 +1,8 @@
-﻿using DLL.Models;
+﻿using BLL.Request;
+using DLL.Models;
 using DLL.UniteOfWork;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Utility.Exceptions;
 
@@ -10,11 +10,14 @@ namespace BLL.Services
 {
     public interface IStudentService
     {
-        Task<Student> InsertAsync(Student student);
+        Task<Student> InsertAsync(Student Request);
         Task<List<Student>> GetAllAsync();
         Task<Student> UpdateAsync(string email, Student student);
         Task<Student> DeleteAsync(string email);
         Task<Student> GetAAsync(string email);
+
+        //Task<bool> EmailExists(string email);
+        //Task<bool> IsIdExists(int id);
     }
 
     public class StudentService : IStudentService
@@ -28,6 +31,12 @@ namespace BLL.Services
 
         public async Task<Student> InsertAsync(Student student)
         {
+            //var student = new Student()
+            //{
+            //    Email = student.Email,
+            //    Name = student.Name,
+            //    //DepartmentId = studentRequest.DepartmentId
+            //};
             await _studentRepository.CreateAsync(student);
             if(await _studentRepository.SaveCompletedAsync())
             {
@@ -73,5 +82,20 @@ namespace BLL.Services
             }
             throw new ApplicationValidationException("Delect has Some Issue");
         }
+
+        //public async Task<bool> EmailExists(string email)
+        //{
+        //    var student = await _studentRepository.FindSingLeAsync(x => x.Email == email);
+        //    if (student != null)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
+        //public Task<bool> IsIdExists(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

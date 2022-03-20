@@ -1,4 +1,5 @@
-﻿using DLL.Models;
+﻿using BLL.Request;
+using DLL.Models;
 using DLL.UniteOfWork;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace BLL.Services
 {
     public interface IDepartmentService
     {
-        Task<Department> InsertAsync(Department department);
+        Task<Department> InsertAsync(DepartmentInsertRequestViewModel request);
         Task<List<Department>> GetAllAsync();
-        Task<Department> UpdateAsync(string code, Department department);
+        Task<Department> UpdateAsync(string code, DepartmentInsertRequestViewModel adepartment);
         Task<Department> DeleteAsync(string code);
         Task<Department> GetAAsync(string code);
 
@@ -25,12 +26,15 @@ namespace BLL.Services
             _departmentRepository = departmentRepository;
         }
 
-        public async Task<Department> InsertAsync(Department department)
+        public async Task<Department> InsertAsync(DepartmentInsertRequestViewModel request)
         {
-            await _departmentRepository.CreateAsync(department);
+            Department aDepartment = new Department();
+            aDepartment.Code = request.Code;
+            aDepartment.Name = request.Name;
+            await _departmentRepository.CreateAsync(aDepartment);
             if (await _departmentRepository.SaveCompletedAsync())
             {
-                return department;
+                return aDepartment;
             }
             throw new ApplicationValidationException("Depatment insert has some problem");
         }
@@ -48,7 +52,7 @@ namespace BLL.Services
             return department;
         }
 
-        public async Task<Department> UpdateAsync(string code, Department adepartment)
+        public async Task<Department> UpdateAsync(string code, DepartmentInsertRequestViewModel adepartment)
         {
             var department = await _departmentRepository.FindSingLeAsync(x => x.Code == code);
             if (department == null)
