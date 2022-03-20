@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.Request;
+using BLL.Services;
 using DLL.Model;
 using DLL.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Insert(Course course)
+        public async Task<IActionResult> Insert(CourseInsertRequestViewModel course)
         {
             return Ok(await _courseService.InsertAsync(course));
         }
