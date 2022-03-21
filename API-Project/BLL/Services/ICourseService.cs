@@ -15,7 +15,7 @@ namespace BLL.Services
         Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel course);
         Task<Course> DeleteAsync(string code);
         Task<Course> GetAAsync(string code);
-
+      
     }
 
     public class CourseService : ICourseService

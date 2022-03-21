@@ -10,9 +10,9 @@ namespace BLL.Services
 {
     public interface IStudentService
     {
-        Task<Student> InsertAsync(Student Request);
+        Task<Student> InsertAsync(StudentInsertRequestViewModel astudent);
         Task<List<Student>> GetAllAsync();
-        Task<Student> UpdateAsync(string email, Student student);
+        Task<Student> UpdateAsync(string email, StudentInsertRequestViewModel student);
         Task<Student> DeleteAsync(string email);
         Task<Student> GetAAsync(string email);
 
@@ -29,14 +29,14 @@ namespace BLL.Services
             _studentRepository = studentRepository;
         }
 
-        public async Task<Student> InsertAsync(Student student)
+        public async Task<Student> InsertAsync(StudentInsertRequestViewModel astudent )
         {
-            //var student = new Student()
-            //{
-            //    Email = student.Email,
-            //    Name = student.Name,
-            //    //DepartmentId = studentRequest.DepartmentId
-            //};
+            var student = new Student()
+            {
+                Email = astudent.Email,
+                Name = astudent.Name,
+                //DepartmentId = studentRequest.DepartmentId
+            };
             await _studentRepository.CreateAsync(student);
             if(await _studentRepository.SaveCompletedAsync())
             {
@@ -52,7 +52,7 @@ namespace BLL.Services
         {
             return await _studentRepository.FindSingLeAsync(x => x.Email == email);
         }
-        public async Task<Student> UpdateAsync(string email, Student student)
+        public async Task<Student> UpdateAsync(string email, StudentInsertRequestViewModel student)
         {
             var dbStudent = await _studentRepository.FindSingLeAsync(x => x.Email == email);
             if(dbStudent == null)
