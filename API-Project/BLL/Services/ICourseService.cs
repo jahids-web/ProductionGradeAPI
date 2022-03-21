@@ -12,7 +12,7 @@ namespace BLL.Services
     {
         Task<Course> InsertAsync(CourseInsertRequestViewModel request);
         Task<List<Course>> GetAllAsync();
-        Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel course);
+        Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel aCourse);
         Task<Course> DeleteAsync(string code);
         Task<Course> GetAAsync(string code);
       
