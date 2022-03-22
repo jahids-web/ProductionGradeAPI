@@ -10,14 +10,14 @@ namespace BLL.Services
 {
     public interface IStudentService
     {
-        Task<Student> InsertAsync(StudentInsertRequestViewModel astudent);
+        Task<Student> InsertAsync(StudentInsertRequestViewModel studentRequest);
         Task<List<Student>> GetAllAsync();
         Task<Student> UpdateAsync(string email, StudentInsertRequestViewModel student);
         Task<Student> DeleteAsync(string email);
         Task<Student> GetAAsync(string email);
 
-        //Task<bool> EmailExists(string email);
-        //Task<bool> IsIdExists(int id);
+        Task<bool> EmailExists(string email);
+        Task<bool> IsIdExists(int id);
     }
 
     public class StudentService : IStudentService
@@ -29,13 +29,13 @@ namespace BLL.Services
             _studentRepository = studentRepository;
         }
 
-        public async Task<Student> InsertAsync(StudentInsertRequestViewModel astudent )
+        public async Task<Student> InsertAsync(StudentInsertRequestViewModel studentRequest)
         {
             var student = new Student()
             {
-                Email = astudent.Email,
-                Name = astudent.Name,
-                //DepartmentId = studentRequest.DepartmentId
+                Email = studentRequest.Email,
+                Name = studentRequest.Name,
+                DepartmentId = studentRequest.DepartmentId
             };
             await _studentRepository.CreateAsync(student);
             if(await _studentRepository.SaveCompletedAsync())
@@ -83,19 +83,19 @@ namespace BLL.Services
             throw new ApplicationValidationException("Delect has Some Issue");
         }
 
-        //public async Task<bool> EmailExists(string email)
-        //{
-        //    var student = await _studentRepository.FindSingLeAsync(x => x.Email == email);
-        //    if (student != null)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        public async Task<bool> EmailExists(string email)
+        {
+            var student = await _studentRepository.FindSingLeAsync(x => x.Email == email);
+            if (student != null)
+            {
+                return true;
+            }
+            return false;
+        }
 
-        //public Task<bool> IsIdExists(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public Task<bool> IsIdExists(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
