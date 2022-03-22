@@ -10,8 +10,8 @@ namespace BLL.Request
     public class StudentInsertRequestViewModel
     {
         public string Name { get; set; }    
-        public string Email { get; set; }   
-        //public string DepartmentId { get; set; }
+        public string Email { get; set; }
+        public int DepartmentId { get; set; }
 
         public class StudentInsertRequestViewModelValidator : AbstractValidator<StudentInsertRequestViewModel>
         {
@@ -26,8 +26,8 @@ namespace BLL.Request
                 RuleFor(x => x.Email).NotNull().NotEmpty().MinimumLength(8)
                     .MaximumLength(20).WithMessage("code already exists");
 
-                //RuleFor((x => x.DepartmentId)).NotNull().NotEmpty().MinimumLength(1)
-                //  .MaximumLength(100).WithMessage("DepartmentId already exists");
+                RuleFor((x => x.DepartmentId)).NotNull().NotEmpty()
+                  .WithMessage("DepartmentId already exists");
             }
 
             //private async Task<bool> EmailExists(string email, CancellationToken arg2)
@@ -40,11 +40,11 @@ namespace BLL.Request
             //    return await requiredService.EmailExists(email);
             //}
 
-            //private async Task<bool> DepartmentExists(int id, CancellationToken arg2)
-            //{
-            //    var requiredService = _serviceProvider.GetRequiredService<IStudentService>();
-            //    return !await requiredService.IsIdExists(id);
-            //}
+            private async Task<bool> DepartmentExists(int id, CancellationToken arg2)
+            {
+                var requiredService = _serviceProvider.GetRequiredService<IStudentService>();
+                return !await requiredService.IsIdExists(id);
+            }
         }
 
     }
