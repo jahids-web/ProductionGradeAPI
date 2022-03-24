@@ -38,7 +38,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{code}")]
-        public async Task<IActionResult> Update(string code, CourseInsertRequestViewModel course)
+        public async Task<IActionResult> Update(string code, Course course)
         {
             return Ok(await _courseService.UpdateAsync(code, course));
         }
