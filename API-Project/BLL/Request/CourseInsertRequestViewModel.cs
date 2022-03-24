@@ -27,6 +27,8 @@ namespace BLL.Request
                 .MinimumLength(4).MustAsync(NameExists).WithMessage("name already exists");
             RuleFor((x => x.Code)).NotNull().NotEmpty().MinimumLength(3)
                 .MaximumLength(12).MustAsync(CodeExists).WithMessage("code already exists");
+
+            RuleFor((x => x.Credit)).NotNull().NotEmpty();
         }
 
         private async Task<bool> CodeExists(string code, CancellationToken cancellationToken)
