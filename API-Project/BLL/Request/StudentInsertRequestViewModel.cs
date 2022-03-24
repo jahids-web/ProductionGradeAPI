@@ -30,15 +30,15 @@ namespace BLL.Request
                   .WithMessage("DepartmentId already exists");
             }
 
-            //private async Task<bool> EmailExists(string email, CancellationToken arg2)
-            //{
-            //    if (string.IsNullOrEmpty(email))
-            //    {
-            //        return true;
-            //    }
-            //    var requiredService = _serviceProvider.GetRequiredService<IStudentService>();
-            //    return await requiredService.EmailExists(email);
-            //}
+            private async Task<bool> EmailExists(string email, CancellationToken arg2)
+            {
+                if (string.IsNullOrEmpty(email))
+                {
+                    return true;
+                }
+                var requiredService = _serviceProvider.GetRequiredService<IStudentService>();
+                return await requiredService.EmailExists(email);
+            }
 
             private async Task<bool> DepartmentExists(int id, CancellationToken arg2)
             {
