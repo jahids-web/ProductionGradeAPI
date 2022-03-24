@@ -15,7 +15,9 @@ namespace BLL.Services
         Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel aCourse);
         Task<Course> DeleteAsync(string code);
         Task<Course> GetAAsync(string code);
-      
+
+        Task<bool> IsNameExists(string name);
+        Task<bool> IsCodeExits(string name);
     }
 
     public class CourseService : ICourseService
@@ -101,7 +103,27 @@ namespace BLL.Services
             }
             throw new ApplicationValidationException("Some Problem for delete data");
         }
-        
-      
+        public async Task<bool> IsNameExists(string name)
+        {
+            var department = await _courseRepository.FindSingLeAsync(x => x.Name == name);
+            if (department != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> IsCodeExits(string code)
+        {
+            var department = await _courseRepository.FindSingLeAsync(x => x.Code == code);
+            if (department != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
