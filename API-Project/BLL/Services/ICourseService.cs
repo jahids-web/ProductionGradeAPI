@@ -12,7 +12,7 @@ namespace BLL.Services
     {
         Task<Course> InsertAsync(CourseInsertRequestViewModel request);
         Task<List<Course>> GetAllAsync();
-        Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel aCourse);
+        Task<Course> UpdateAsync(string code, Course aCourse);
         Task<Course> DeleteAsync(string code);
         Task<Course> GetAAsync(string code);
 
@@ -56,7 +56,7 @@ namespace BLL.Services
             return course;
         }
 
-        public async Task<Course> UpdateAsync(string code, CourseInsertRequestViewModel aCourse)
+        public async Task<Course> UpdateAsync(string code, Course aCourse)
         {
             var course = await _courseRepository.FindSingLeAsync(x => x.Code == code);
             if (course == null)
@@ -70,7 +70,7 @@ namespace BLL.Services
                 {
                     throw new ApplicationValidationException("You updated Code alrady present in our systam");
                 }
-                course.Code = aCourse.Code;
+                aCourse.Code = aCourse.Code;
             }
 
             if (!string.IsNullOrWhiteSpace(aCourse.Name))
@@ -80,8 +80,9 @@ namespace BLL.Services
                 {
                     throw new ApplicationValidationException("You updated Name alrady present in our systam");
                 }
-                course.Name = aCourse.Name;
+                aCourse.Name = aCourse.Name;
             }
+         
             _courseRepository.Update(course);
             if (await _courseRepository.SaveCompletedAsync())
             {
