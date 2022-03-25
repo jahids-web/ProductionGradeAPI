@@ -23,12 +23,12 @@ namespace BLL.Request
         public CourseInsertRequestViewModelValidator(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
-            RuleFor((x => x.Name)).NotNull().NotEmpty()
+            RuleFor(x => x.Name).NotNull().NotEmpty()
                 .MinimumLength(4).MustAsync(NameExists).WithMessage("name already exists");
-            RuleFor((x => x.Code)).NotNull().NotEmpty().MinimumLength(3)
+            RuleFor(x => x.Code).NotNull().NotEmpty().MinimumLength(3)
                 .MaximumLength(12).MustAsync(CodeExists).WithMessage("code already exists");
 
-            RuleFor((x => x.Credit)).NotNull().NotEmpty();
+            RuleFor(x => x.Credit).NotNull().NotEmpty();
         }
 
         private async Task<bool> CodeExists(string code, CancellationToken cancellationToken)
@@ -53,6 +53,7 @@ namespace BLL.Request
 
             return !await departmentService.IsNameExists(name);
         }
+
     }
 
 }
