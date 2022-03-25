@@ -12,12 +12,12 @@ namespace BLL.Services
     {
         Task<Course> InsertAsync(CourseInsertRequestViewModel request);
         Task<List<Course>> GetAllAsync();
-        Task<Course> UpdateAsync(string code, Course course);
+        Task<Course> UpdateAsync(string code, Course department);
         Task<Course> DeleteAsync(string code);
         Task<Course> GetAAsync(string code);
 
         Task<bool> IsNameExists(string name);
-        Task<bool> IsCodeExits(string name);
+        Task<bool> IsCodeExits(string code);
     }
 
     public class CourseService : ICourseService
