@@ -1,5 +1,4 @@
-﻿
-using BLL.Services;
+﻿using BLL.Services;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -23,8 +22,10 @@ namespace BLL.Request
         public CourseInsertRequestViewModelValidator(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
+
             RuleFor(x => x.Name).NotNull().NotEmpty()
                 .MinimumLength(4).MustAsync(NameExists).WithMessage("name already exists");
+
             RuleFor(x => x.Code).NotNull().NotEmpty().MinimumLength(3)
                 .MaximumLength(12).MustAsync(CodeExists).WithMessage("code already exists");
 
