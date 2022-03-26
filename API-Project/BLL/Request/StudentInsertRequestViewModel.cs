@@ -24,10 +24,10 @@ namespace BLL.Request
                 RuleFor(x => x.Name).NotNull().NotEmpty()
                     .MinimumLength(4).WithMessage("name already exists");
 
-                RuleFor(x => x.Email).NotNull().NotEmpty().MinimumLength(8).MustAsync(EmailExists)
+                RuleFor(x => x.Email).NotNull().NotEmpty().MinimumLength(8)
                     .MaximumLength(20).WithMessage("code already exists");
 
-                RuleFor((x => x.DepartmentId)).NotNull().NotEmpty().MustAsync(DepartmentExists)
+                RuleFor((x => x.DepartmentId)).NotNull().NotEmpty()
                   .WithMessage("DepartmentId already exists");
             }
 
