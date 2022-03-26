@@ -54,7 +54,7 @@ namespace API
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new OpenApiContact
                     {
-                        Name = "jahid Uddin",
+                        Name = "Production Grade Api",
                         Url = new Uri("https://example.com/contact")
                     },
                     License = new OpenApiLicense
