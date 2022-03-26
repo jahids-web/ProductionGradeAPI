@@ -1,6 +1,5 @@
 ﻿using BLL.Request;
 using DLL.Model;
-using DLL.Models;
 using DLL.UniteOfWork;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ namespace BLL.Services
     {
         Task<Course> InsertAsync(CourseInsertRequestViewModel request);
         Task<List<Course>> GetAllAsync();
-        Task<Course> UpdateAsync(string code, Course department);
+        Task<Course> UpdateAsync(string code, Course course);
         Task<Course> DeleteAsync(string code);
         Task<Course> GetAAsync(string code);
 
