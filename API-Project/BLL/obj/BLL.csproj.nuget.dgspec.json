@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\C#\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj": {}
+    "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "G:\\C#\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj": {
+    "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\C#\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj",
+        "projectUniqueName": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj",
+        "projectPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Jahid Uddin\\.nuget\\packages\\",
-        "outputPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\BLL\\obj\\",
+        "outputPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jahid Uddin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj": {
-                "projectPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj"
+              "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj": {
+                "projectPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj"
               },
-              "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {
-                "projectPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj"
+              "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {
+                "projectPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj": {
+    "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj",
+        "projectUniqueName": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj",
         "projectName": "DLL",
-        "projectPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj",
+        "projectPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\DLL\\DLL.csproj",
         "packagesPath": "C:\\Users\\Jahid Uddin\\.nuget\\packages\\",
-        "outputPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\DLL\\obj\\",
+        "outputPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\DLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jahid Uddin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -163,14 +163,14 @@
         }
       }
     },
-    "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {
+    "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
+        "projectUniqueName": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
         "projectName": "Utility",
-        "projectPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
+        "projectPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
         "packagesPath": "C:\\Users\\Jahid Uddin\\.nuget\\packages\\",
-        "outputPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\obj\\",
+        "outputPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jahid Uddin\\AppData\\Roaming\\NuGet\\NuGet.Config",
