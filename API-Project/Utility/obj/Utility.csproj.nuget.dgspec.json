@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {}
+    "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {}
   },
   "projects": {
-    "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {
+    "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
+        "projectUniqueName": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
         "projectName": "Utility",
-        "projectPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
+        "projectPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\Utility.csproj",
         "packagesPath": "C:\\Users\\Jahid Uddin\\.nuget\\packages\\",
-        "outputPath": "G:\\C#\\ProductionGradeAPI\\API-Project\\Utility\\obj\\",
+        "outputPath": "G:\\C#\\Api-Projects\\ProductionGradeAPI\\API-Project\\Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jahid Uddin\\AppData\\Roaming\\NuGet\\NuGet.Config",
